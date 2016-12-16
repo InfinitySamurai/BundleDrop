@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Entitas;
+using System.Collections.Generic;
 
 namespace BundleDrop {
     /// <summary>
@@ -9,6 +11,10 @@ namespace BundleDrop {
     public class BundleDrop : Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Dictionary<string, Texture2D> sprites;
+        SpriteFont font;
+        Pools pools;
+        Systems systems;
 
         public BundleDrop() {
             graphics = new GraphicsDeviceManager(this);
@@ -23,6 +29,10 @@ namespace BundleDrop {
         /// </summary>
         protected override void Initialize() {
             // TODO: Add your initialization logic here
+            pools = Pools.sharedInstance;
+            pools.SetAllPools();
+            systems = new Systems();
+            sprites = new Dictionary<string, Texture2D>();
 
             base.Initialize();
         }
@@ -70,6 +80,11 @@ namespace BundleDrop {
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+
+    void CreateSystems() {
+
         }
     }
 }

@@ -40,6 +40,11 @@
   <ItemGroup>
     <Compile Include="BundleDrop.cs" />
     <Compile Include="CodeGenerator.cs" />
+    <Compile Include="Components\ClickableComponent.cs" />
+    <Compile Include="Components\PositionComponent.cs" />
+    <Compile Include="Components\VelocityComponent.cs" />
+    <Compile Include="Components\ViewComponent.cs" />
+    <Compile Include="Generated\BundleDrop.ClickableComponentGeneratedExtension.cs" />
     <Compile Include="Generated\CoreAttribute.cs" />
     <Compile Include="Generated\CoreComponentIds.cs" />
     <Compile Include="Generated\EnemiesAttribute.cs" />
@@ -135,7 +140,6 @@
     <None Include="Libraries\Entitas\entitas_version" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\" />
     <Folder Include="Systems\" />
   </ItemGroup>
   <!-- Specify the search path explicitly so the ResolveAssemblyReferences task picks the right ones -->

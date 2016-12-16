@@ -8,11 +8,24 @@
 //------------------------------------------------------------------------------
 public static class CoreComponentIds {
 
-    public const int TotalComponents = 0;
+    public const int Clickable = 0;
+    public const int Position = 1;
+    public const int Velocity = 2;
+    public const int View = 3;
+
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
+        "Clickable",
+        "Position",
+        "Velocity",
+        "View"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(BundleDrop.ClickableComponent),
+        typeof(BundleDrop.PositionComponent),
+        typeof(BundleDrop.VelocityComponent),
+        typeof(BundleDrop.ViewComponent)
     };
 }
