@@ -38,8 +38,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BundleDrop.cs" />
     <Compile Include="CodeGenerator.cs" />
-    <Compile Include="Game.cs" />
     <Compile Include="Libraries\Entitas\Caching\EntitasCache.cs" />
     <Compile Include="Libraries\Entitas\Caching\ObjectCache.cs" />
     <Compile Include="Libraries\Entitas\Caching\ObjectPool.cs" />

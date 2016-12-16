@@ -18,7 +18,7 @@ namespace BundleDrop {
                 }
             }
             else {
-                using (var game = new Game())
+                using (var game = new BundleDrop())
                     game.Run();
             }
         }

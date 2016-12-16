@@ -6,11 +6,11 @@ namespace BundleDrop {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game {
+    public class BundleDrop : Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public Game1() {
+        public BundleDrop() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }

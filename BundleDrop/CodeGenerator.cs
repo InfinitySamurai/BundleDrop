@@ -4,7 +4,7 @@ using System.Reflection;
 using Entitas;
 using Entitas.CodeGenerator;
 
-namespace Tester {
+namespace BundleDrop {
 
     public static class CodeGenerator {
 
@@ -31,7 +31,7 @@ namespace Tester {
                 codeGenerators,
                 poolNames,
                 blueprintNames,
-                "../../../../Tester/Generated/"
+                "../../../../BundleDrop/Generated/"
             );
         }
 
