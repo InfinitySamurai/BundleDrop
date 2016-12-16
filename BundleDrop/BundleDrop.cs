@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Entitas;
 using System.Collections.Generic;
+using System;
 
 namespace BundleDrop {
     /// <summary>
@@ -46,6 +47,10 @@ namespace BundleDrop {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            sprites["Bundle"] = Content.Load<Texture2D>("BundleBaby");
+
+            CreateEntities();
+            CreateSystems();
         }
 
         /// <summary>
@@ -85,6 +90,11 @@ namespace BundleDrop {
 
     void CreateSystems() {
 
+        }
+
+    void CreateEntities() {
+            var e = pools.core.CreateEntity().AddView(sprites["Bundle"], 1);
+            Console.WriteLine(e);
         }
     }
 }

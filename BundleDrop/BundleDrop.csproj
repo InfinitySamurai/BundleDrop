@@ -45,6 +45,9 @@
     <Compile Include="Components\VelocityComponent.cs" />
     <Compile Include="Components\ViewComponent.cs" />
     <Compile Include="Generated\BundleDrop.ClickableComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\BundleDrop.PositionComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\BundleDrop.VelocityComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\BundleDrop.ViewComponentGeneratedExtension.cs" />
     <Compile Include="Generated\CoreAttribute.cs" />
     <Compile Include="Generated\CoreComponentIds.cs" />
     <Compile Include="Generated\EnemiesAttribute.cs" />
@@ -119,6 +122,7 @@
     <Compile Include="Libraries\Entitas\Systems.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Systems\ViewRenderSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">
@@ -139,9 +143,7 @@
   <ItemGroup>
     <None Include="Libraries\Entitas\entitas_version" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Systems\" />
-  </ItemGroup>
+  <ItemGroup />
   <!-- Specify the search path explicitly so the ResolveAssemblyReferences task picks the right ones -->
   <Target Name="BeforeResolveReferences">
     <CreateProperty Value="$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows;$(AssemblySearchPaths)">
