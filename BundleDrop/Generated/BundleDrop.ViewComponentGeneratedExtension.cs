@@ -15,17 +15,19 @@ namespace Entitas {
         public BundleDrop.ViewComponent view { get { return (BundleDrop.ViewComponent)GetComponent(CoreComponentIds.View); } }
         public bool hasView { get { return HasComponent(CoreComponentIds.View); } }
 
-        public Entity AddView(Microsoft.Xna.Framework.Graphics.Texture2D newSprite, int newScale) {
+        public Entity AddView(Microsoft.Xna.Framework.Graphics.Texture2D newSprite, float newScale, Microsoft.Xna.Framework.Color newColor) {
             var component = CreateComponent<BundleDrop.ViewComponent>(CoreComponentIds.View);
             component.sprite = newSprite;
             component.scale = newScale;
+            component.color = newColor;
             return AddComponent(CoreComponentIds.View, component);
         }
 
-        public Entity ReplaceView(Microsoft.Xna.Framework.Graphics.Texture2D newSprite, int newScale) {
+        public Entity ReplaceView(Microsoft.Xna.Framework.Graphics.Texture2D newSprite, float newScale, Microsoft.Xna.Framework.Color newColor) {
             var component = CreateComponent<BundleDrop.ViewComponent>(CoreComponentIds.View);
             component.sprite = newSprite;
             component.scale = newScale;
+            component.color = newColor;
             ReplaceComponent(CoreComponentIds.View, component);
             return this;
         }

@@ -22,7 +22,7 @@ namespace BundleDrop {
             };
 
             // Specify all pools
-            var poolNames = new[] { "Core", "Meta", "enemies" };
+            var poolNames = new[] { "Core", "Meta"};
 
             // Specify all blueprints
             var blueprintNames = new string[0];

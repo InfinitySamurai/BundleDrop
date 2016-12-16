@@ -15,7 +15,8 @@ namespace BundleDrop {
         Dictionary<string, Texture2D> sprites;
         SpriteFont font;
         Pools pools;
-        Systems systems;
+        Systems updateSystems;
+        Systems renderSystems;
 
         public BundleDrop() {
             graphics = new GraphicsDeviceManager(this);
@@ -32,7 +33,8 @@ namespace BundleDrop {
             // TODO: Add your initialization logic here
             pools = Pools.sharedInstance;
             pools.SetAllPools();
-            systems = new Systems();
+            updateSystems = new Systems();
+            renderSystems = new Systems();
             sprites = new Dictionary<string, Texture2D>();
 
             base.Initialize();
@@ -71,6 +73,7 @@ namespace BundleDrop {
                 Exit();
 
             // TODO: Add your update logic here
+            updateSystems.Execute();
 
             base.Update(gameTime);
         }
@@ -83,18 +86,23 @@ namespace BundleDrop {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            renderSystems.Execute();
+            spriteBatch.End();
             base.Draw(gameTime);
         }
 
 
     void CreateSystems() {
+            renderSystems.Add(pools.core.CreateSystem(new ViewRenderSystem(spriteBatch, sprites)));
 
+            updateSystems.Add(pools.core.CreateSystem(new SpinSystem()));
+            updateSystems.Add(pools.core.CreateSystem(new MovementSystem()));
+            updateSystems.Add(pools.core.CreateSystem(new BundleSpawnerSystem(sprites["Bundle"])));
         }
 
     void CreateEntities() {
-            var e = pools.core.CreateEntity().AddView(sprites["Bundle"], 1);
-            Console.WriteLine(e);
+            //var e = pools.core.CreateEntity().AddView(sprites["Bundle"], 1f, Color.White).AddPosition(20,20).AddAngle(0).AddRotation(0.05f).AddVelocity(1,1);
         }
     }
 }

@@ -40,18 +40,20 @@
   <ItemGroup>
     <Compile Include="BundleDrop.cs" />
     <Compile Include="CodeGenerator.cs" />
+    <Compile Include="Components\AngleComponent.cs" />
     <Compile Include="Components\ClickableComponent.cs" />
     <Compile Include="Components\PositionComponent.cs" />
+    <Compile Include="Components\RotationComponent.cs" />
     <Compile Include="Components\VelocityComponent.cs" />
     <Compile Include="Components\ViewComponent.cs" />
+    <Compile Include="Generated\BundleDrop.AngleComponentGeneratedExtension.cs" />
     <Compile Include="Generated\BundleDrop.ClickableComponentGeneratedExtension.cs" />
     <Compile Include="Generated\BundleDrop.PositionComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\BundleDrop.RotationComponentGeneratedExtension.cs" />
     <Compile Include="Generated\BundleDrop.VelocityComponentGeneratedExtension.cs" />
     <Compile Include="Generated\BundleDrop.ViewComponentGeneratedExtension.cs" />
     <Compile Include="Generated\CoreAttribute.cs" />
     <Compile Include="Generated\CoreComponentIds.cs" />
-    <Compile Include="Generated\EnemiesAttribute.cs" />
-    <Compile Include="Generated\EnemiesComponentIds.cs" />
     <Compile Include="Generated\MetaAttribute.cs" />
     <Compile Include="Generated\MetaComponentIds.cs" />
     <Compile Include="Generated\Pools.cs" />
@@ -122,6 +124,9 @@
     <Compile Include="Libraries\Entitas\Systems.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Systems\BundleSpawnerSystem.cs" />
+    <Compile Include="Systems\MovementSystem.cs" />
+    <Compile Include="Systems\SpinSystem.cs" />
     <Compile Include="Systems\ViewRenderSystem.cs" />
   </ItemGroup>
   <ItemGroup>
