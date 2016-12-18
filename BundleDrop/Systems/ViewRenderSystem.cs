@@ -36,7 +36,7 @@ namespace BundleDrop{
                     rotation = e.angle.angle;
                 }
 
-                spriteBatch.Draw(sprite, position, null, c, rotation, centre, scale, SpriteEffects.None, 0f);             
+                spriteBatch.Draw(sprite, position, null, c, rotation, centre, scale, SpriteEffects.None, 0f);
     }
         }
 

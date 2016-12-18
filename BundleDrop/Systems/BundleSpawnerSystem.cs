@@ -5,7 +5,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
 namespace BundleDrop{
-    public class BundleSpawnerSystem : IExecuteSystem {
+    public class BundleSpawnerSystem : IExecuteSystem, ISetPools {
+
+        Pools pools;
 
         Texture2D sprite;
         Random random = new Random();
@@ -24,23 +26,30 @@ namespace BundleDrop{
 
         public void Execute() {
 
-            int citem = random.Next(colors.Count);
+            if(pools.core.tick.value % 60 == 0) {
+                int citem = random.Next(colors.Count);
 
-            Color c = colors[citem];
+                Color c = colors[citem];
 
-            int xpos = random.Next(0, 800);
-            int xspeed = random.Next(-10, 10);
-            int yspeed = random.Next(1, 10);
-            float rotation = (float)random.NextDouble()*0.5f;
+                int xpos = random.Next(0, 800);
+                int xspeed = random.Next(-10, 10);
+                int yspeed = random.Next(1, 10);
+                float rotation = (float)random.NextDouble()*0.5f;
 
-            Entity e = Pools.sharedInstance.core.CreateEntity();
-            e.AddAngle(0);
-            e.AddPosition(xpos, 10);
-            e.AddRotation(rotation);
-            e.AddVelocity(xspeed, yspeed);
-            e.AddView(sprite, 1, c);
+                Entity e = Pools.sharedInstance.core.CreateEntity();
+                e.AddAngle(0);
+                e.AddPosition(xpos, 10);
+                e.AddRotation(rotation);
+                e.AddVelocity(xspeed, yspeed);
+                e.AddView(sprite, 1, c);
+                e.AddBoundingCircle(25);
+
+            }
 
         }
 
+        public void SetPools(Pools pools) {
+            this.pools = pools;
+        }
     }
 }

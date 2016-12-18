@@ -50,6 +50,7 @@ namespace BundleDrop {
 
             // TODO: use this.Content to load your game content here
             sprites["Bundle"] = Content.Load<Texture2D>("BundleBaby");
+            sprites["Basket"] = Content.Load<Texture2D>("Basket");
 
             CreateEntities();
             CreateSystems();
@@ -95,14 +96,21 @@ namespace BundleDrop {
 
     void CreateSystems() {
             renderSystems.Add(pools.core.CreateSystem(new ViewRenderSystem(spriteBatch, sprites)));
+            renderSystems.Initialize();
 
+            updateSystems.Add(pools.core.CreateSystem(new IncrementTickSystem()));
+            updateSystems.Add(pools.core.CreateSystem(new FollowMouseSystem()));
             updateSystems.Add(pools.core.CreateSystem(new SpinSystem()));
             updateSystems.Add(pools.core.CreateSystem(new MovementSystem()));
+            updateSystems.Add(pools.core.CreateSystem(new GenericCollisionSystem()));
+            updateSystems.Add(pools.core.CreateSystem(new HandleCollisionSystem()));
             updateSystems.Add(pools.core.CreateSystem(new BundleSpawnerSystem(sprites["Bundle"])));
+            updateSystems.Initialize();
         }
 
     void CreateEntities() {
             //var e = pools.core.CreateEntity().AddView(sprites["Bundle"], 1f, Color.White).AddPosition(20,20).AddAngle(0).AddRotation(0.05f).AddVelocity(1,1);
+            var e = pools.core.CreateEntity().AddView(sprites["Basket"], 1, Color.White).AddPosition(0,0).IsFollowMouse(true).AddBoundingCircle(25);
         }
     }
 }
